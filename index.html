@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation: LLMs - Double-Edged Swords</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<div id="presentationContainer" class="relative w-full h-screen">
+
+    <div class="slide active center-content bg-gradient-to-br from-indigo-100 to-purple-100">
+        <svg class="title-svg text-indigo-600" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none"
+             stroke="currentColor" stroke-width="2">
+            <rect x="30" y="48" width="4" height="12" rx="1" fill="currentColor" />
+            <rect x="24" y="46" width="16" height="4" rx="1" fill="currentColor" />
+            <path d="M32 5 V46" stroke-width="3" stroke-linecap="round" />
+            <path d="M32 10 L26 20 L26 40" stroke="green" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M32 10 L38 20 L38 40" stroke="red" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="32" cy="20" r="4" fill="currentColor" fill-opacity="0.2" />
+            <path d="M28 16 L36 24 M28 24 L36 16" stroke-width="1" />
+            <text x="24" y="30" font-size="3" fill="currentColor">10</text>
+            <text x="38" y="30" font-size="3" fill="currentColor">01</text>
+            <text x="24" y="36" font-size="3" fill="currentColor">01</text>
+            <text x="38" y="36" font-size="3" fill="currentColor">10</text>
+        </svg>
+        <h1 class="text-4xl md:text-5xl font-bold mb-3 text-indigo-800">Navigating the Web: LLMs as Double-Edged
+            Swords</h1>
+        <p class="text-xl md:text-2xl text-purple-700">Understanding Misinformation & Disinformation in the Age of
+            AI</p>
+    </div>
+
+    <div class="slide center-content bg-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800">The Digital Deluge</h2>
+        <p class="text-lg md:text-xl mb-4 max-w-3xl">The internet and social media make sharing information incredibly
+            easy, but this also blurs the lines between truth and falsehood.</p>
+        <p class="text-md md:text-lg mb-8 max-w-3xl text-gray-600">The challenge of discerning truth isn't new; historical texts, like the Talmudic example we'll see, show that the intent to mislead has ancient roots. Modern tools, however, amplify this challenge.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-2xl">
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md border border-blue-200">
+                <svg class="icon-svg mx-auto text-blue-600" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12.75L11.25 15L15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor"
+                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                    <path d="M7 7l10 10M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h3 class="text-2xl font-semibold mb-2 text-blue-700">Misinformation</h3>
+                <p class="text-blue-600">Unintentional errors, misunderstandings, or sharing without checking.</p>
+            </div>
+            <div class="bg-red-50 p-6 rounded-lg shadow-md border border-red-200">
+                <svg class="icon-svg mx-auto text-red-600" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                          fill="currentColor" opacity="0.3"/>
+                    <path d="M9.5 14c-1.5 0-2.5-1-2.5-2.5S8 9 9.5 9s2.5 1 2.5 2.5-1 2.5-2.5 2.5zm5 0c-1.5 0-2.5-1-2.5-2.5S13 9 14.5 9s2.5 1 2.5 2.5-1 2.5-2.5 2.5z"
+                          fill="currentColor"/>
+                    <path d="M12 16c-2 0-3 .5-3.5 1-.5.5-.5 1.5 0 2 .5.5 1.5 1 3.5 1s3-.5 3.5-1c.5-.5.5-1.5 0-2-.5-.5-1.5-1-3.5-1z"
+                          fill="currentColor"/>
+                    <path d="M7 6l-1-2-1 2h2zm10 0l-1-2-1 2h2z" fill="currentColor"/>
+                </svg>
+                <h3 class="text-2xl font-semibold mb-2 text-red-700">Disinformation</h3>
+                <p class="text-red-600">Intentional deception, fake news, or manipulation for an agenda.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide center-content bg-red-50">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-red-800">Historical Disinformation: An Ancient Example</h2>
+        <p class="text-md md:text-lg mb-4 max-w-3xl text-gray-700">This excerpt from the Talmud (Sanhedrin 90b) discusses individuals spreading falsehoods, showing that the problem of disinformation isn't new, even if the tools change.</p>
+        <div class="w-full max-w-5xl">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold mb-4 text-red-700">מסכת סנהדרין דף צ עמוד ב</h3>
+                <embed src="3789.pdf" type="application/pdf" width="100%" height="550px" class="border border-gray-300 rounded">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide center-content bg-red-50">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-red-800">Talmud Explanation (Maharsha)</h2>
+        <p class="text-md md:text-lg mb-4 max-w-3xl text-gray-700">The Maharsha commentary explains the context and implications of the disinformation discussed in the Talmudic passage.</p>
+        <div class="w-full max-w-5xl">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold mb-4 text-red-700">פירוש המהרש"א</h3>
+                <img src="מהרשא.jpg" alt="Disinformation Example Image - Maharsha Commentary" class="w-full max-h-[550px] object-contain border border-gray-300 rounded">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide center-content bg-gray-100">
+        <svg class="small-title-svg text-emerald-500" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+            <path d="M32 8C22 8 14 16 14 26c0 4 1 7 3 10l-3 12h36l-3-12c2-3 3-6 3-10C50 16 42 8 32 8z"
+                  stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.1"/>
+            <circle cx="32" cy="20" r="3" fill="currentColor" fill-opacity="0.6"/>
+            <circle cx="24" cy="26" r="2.5" fill="currentColor" fill-opacity="0.5"/>
+            <circle cx="40" cy="26" r="2.5" fill="currentColor" fill-opacity="0.5"/>
+            <circle cx="20" cy="34" r="2" fill="currentColor" fill-opacity="0.4"/>
+            <circle cx="32" cy="34" r="2" fill="currentColor" fill-opacity="0.4"/>
+            <circle cx="44" cy="34" r="2" fill="currentColor" fill-opacity="0.4"/>
+            <path d="M32 20L24 26M32 20L40 26M24 26L20 34M24 26L32 34M40 26L32 34M40 26L44 34"
+                  stroke="currentColor" stroke-width="1"/>
+            <text x="19" y="18" font-size="3" fill="currentColor">GPT</text>
+            <text x="42" y="18" font-size="3" fill="currentColor">LLM</text>
+            <text x="16" y="42" font-size="3" fill="currentColor">NLP</text>
+            <text x="44" y="42" font-size="3" fill="currentColor">AI</text>
+            <path d="M26 46h12" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M24 50h16" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M28 54h8" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Enter the Game Changer: LLMs</h2>
+        <ul class="list-disc list-inside text-lg md:text-xl space-y-3 max-w-xl text-left text-gray-700">
+            <li>Advanced AI like ChatGPT, Gemini, and others.</li>
+            <li>Trained on massive datasets (books, websites, articles).</li>
+            <li>Can generate human-like text, answer questions, summarize, translate, and much more.</li>
+        </ul>
+        <p class="mt-6 text-gray-600 italic">They understand and generate language in powerful new ways.</p>
+    </div>
+
+    <div class="slide center-content bg-green-50">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-green-800">The "Good" Edge: Fighting Falsehoods</h2>
+        <p class="text-lg md:text-xl mb-8 text-green-700">LLMs can be powerful tools for truth.</p>
+        <div class="icon-grid">
+            <div class="icon-item">
+                <svg class="icon-svg text-green-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 10h16M4 14h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="15" cy="15" r="4" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M18 18l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"
+                          opacity="0.3"/>
+                </svg>
+                <span>Fact-Checking</span>
+                <p>Verify info (e.g., medical claims)</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-green-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12h6M9 15h6M12 21a9 9 0 100-18 9 9 0 000 18z" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 3V1m0 20v-2m9-9h2M3 12H1m16.5-6.5L19 7M5 19l-1.5 1.5M19 19l1.5 1.5M5 5L3.5 3.5"
+                          stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+                <span>Contextual Awareness</span>
+                <p>Understand nuances in text</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-green-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                    <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 2l-3 5h3l-2 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 22c1-3 3-5 7-5s6 2 7 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="12" cy="4" r="1.5" fill="currentColor"/>
+                    <path d="M3 14l3-2M21 14l-3-2" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-dasharray="1 1"/>
+                </svg>
+                <span>Accessibility/Speed</span>
+                <p>Analyze vast info quickly</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-green-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 19.5C4 18.1193 5.11929 17 6.5 17H20" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round"/>
+                    <path d="M6.5 2H20v15H6.5C5.11929 17 4 15.8807 4 14.5V3.5C4 2.67157 4.67157 2 5.5 2H6.5z"
+                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 6h8M8 10h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Education</span>
+                <p>Explain complex topics clearly</p>
+            </div>
+        </div>
+        <p class="mt-8 text-lg text-green-700 font-medium">Concept: LLMs can help identify, explain, and counter false
+            narratives.</p>
+    </div>
+
+    <div class="slide center-content bg-red-50">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-red-800">The "Bad" Edge: Spreading Falsehoods</h2>
+        <p class="text-lg md:text-xl mb-8 text-red-700">LLMs can be misused as weapons of deception.</p>
+        <div class="icon-grid">
+            <div class="icon-item">
+                <svg class="icon-svg text-red-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4H4a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2z" stroke="currentColor"
+                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 4l-4 4h4V4zM6 10h8M6 14h8M6 18h4" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 8h4v12a2 2 0 01-2 2h-2V8z" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 20l16-16" stroke="red" stroke-width="2"/>
+                </svg>
+                <span>Fake News Generation</span>
+                <p>Create realistic false stories at scale</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-red-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="7" y="4" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.1"/>
+                    <circle cx="10" cy="8" r="1" fill="currentColor"/>
+                    <circle cx="14" cy="8" r="1" fill="currentColor"/>
+                    <path d="M9 11h6" stroke="currentColor" stroke-width="1"/>
+                    <circle cx="5" cy="6" r="1.5" stroke="currentColor" stroke-width="1" fill="currentColor" fill-opacity="0.2"/>
+                    <circle cx="19" cy="6" r="1.5" stroke="currentColor" stroke-width="1" fill="currentColor" fill-opacity="0.2"/>
+                    <path d="M3 12c0-1.1.9-2 2-2h3l1 1v3c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-2z" stroke="currentColor" stroke-width="1" fill="currentColor" fill-opacity="0.1"/>
+                    <path d="M17 12c0-1.1.9-2 2-2h0c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2h-2c-1.1 0-2-.9-2-2v0c0-1.1.9-2 2-2h2" stroke="currentColor" stroke-width="1" fill="currentColor" fill-opacity="0.1"/>
+                    <path d="M3.5 12.5l2 2M5.5 12.5l-2 2" stroke="currentColor" stroke-width="1"/>
+                    <path d="M18.5 12.5l2 2M20.5 12.5l-2 2" stroke="currentColor" stroke-width="1"/>
+                    <path d="M7 19h10" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M9 22h6" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 16v3" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M8 19l-2 2M16 19l2 2" stroke="currentColor" stroke-width="1" stroke-dasharray="1 1"/>
+                </svg>
+                <span>Hallucination</span>
+                <p>Confidently wrong (due to data patterns/gaps)</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-red-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M3 10h18M16 2v4M8 2v4M7 14h2m4 0h2m-6 4h2m4 0h2" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round"/>
+                    <path d="M4 5 L 20 21 M 4 21 L 20 5" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                </svg>
+                <span>Knowledge Cut-off</span>
+                <p>Outdated (costly to constantly retrain)</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-red-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L4 7v2h16V7l-8-4zM4 11h16M5 19h2m10 0h2" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 11l-2 8h4l-2-8zm12 0l-2 8h4l-2-8z" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8v13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path d="M5 11l7-3l7 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round" transform="rotate(5 12 11)"/>
+                </svg>
+                <span>Bias Amplification</span>
+                <p>Reflects biases in training data</p>
+            </div>
+        </div>
+        <p class="mt-8 text-lg text-red-700 font-medium">Concept: LLMs can be misused to create and spread
+            mis/disinformation easily and convincingly.</p>
+    </div>
+
+    <div class="slide center-content bg-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Harmful Potential: Seeing is Believing... Or Is
+            It?</h2>
+        <div class="example-grid">
+            <div class="example-item">
+                <svg class="example-svg bg-red-100 text-red-600" viewBox="0 0 100 60"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="60" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+                    <rect x="10" y="8" width="80" height="8" fill="#f87171"/>
+                    <text x="50" y="13" font-size="5" text-anchor="middle" fill="white" font-weight="bold">FAKE NEWS
+                        DAILY
+                    </text>
+                    <rect x="10" y="20" width="35" height="20" fill="#fee2e2"/>
+                    <line x1="50" y1="22" x2="90" y2="22" stroke="#dc2626" stroke-width="1.5"/>
+                    <line x1="50" y1="26" x2="85" y2="26" stroke="#ef4444" stroke-width="1.5"/>
+                    <line x1="50" y1="30" x2="90" y2="30" stroke="#f87171" stroke-width="1.5"/>
+                    <line x1="50" y1="34" x2="80" y2="34" stroke="#fca5a5" stroke-width="1.5"/>
+                    <line x1="10" y1="45" x2="90" y2="45" stroke="#fee2e2" stroke-width="1"/>
+                    <line x1="10" y1="49" x2="70" y2="49" stroke="#fee2e2" stroke-width="1"/>
+                    <line x1="10" y1="53" x2="80" y2="53" stroke="#fee2e2" stroke-width="1"/>
+                </svg>
+                <p>Generating fake news (e.g., false death reports)</p>
+            </div>
+            <div class="example-item">
+                <svg class="example-svg bg-red-100 text-red-600" viewBox="0 0 100 60"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="60" fill="#fee2e2" stroke="#e5e7eb" stroke-width="1"/>
+                    <polygon points="50,5 95,55 5,55" fill="#ef4444"/>
+                    <circle cx="50" cy="30" r="15" fill="white"/>
+                    <text x="50" y="32" font-size="10" text-anchor="middle" fill="#dc2626" font-weight="bold">LIES!
+                    </text>
+                    <text x="50" y="50" font-size="5" text-anchor="middle" fill="white">Don't Trust Them</text>
+                </svg>
+                <p>Spreading political lies & propaganda</p>
+            </div>
+            <div class="example-item">
+                <svg class="example-svg bg-red-100 text-red-600" viewBox="0 0 100 60"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="60" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+                    <circle cx="50" cy="30" r="20" fill="#fee2e2"/>
+                    <path d="M 30 30 Q 50 10 70 30 T 30 30" fill="#f87171"/>
+                    <rect x="20" y="10" width="5" height="40" fill="#ef4444" transform="skewY(10)"/>
+                    <rect x="75" y="10" width="5" height="40" fill="#dc2626" transform="skewY(-10)"/>
+                    <text x="50" y="55" font-size="5" text-anchor="middle" fill="#dc2626">Altered Reality</text>
+                </svg>
+                <p>Creating misleading visuals</p>
+            </div>
+            <div class="example-item">
+                <svg class="example-svg bg-red-100 text-red-600" viewBox="0 0 100 60"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="60" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+                    <rect x="20" y="40" width="20" height="15" fill="#fca5a5"/>
+                    <rect x="60" y="10" width="20" height="45" fill="#ef4444"/>
+                    <line x1="10" y1="55" x2="90" y2="55" stroke="#4b5563" stroke-width="1"/>
+                    <line x1="10" y1="5" x2="10" y2="55" stroke="#4b5563" stroke-width="1"/>
+                    <text x="30" y="38" font-size="5" text-anchor="middle" fill="#dc2626">Group A</text>
+                    <text x="70" y="8" font-size="5" text-anchor="middle" fill="#b91c1c">Group B</text>
+                </svg>
+                <p>Showing unfair bias (e.g., racial, gender)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide center-content bg-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Beneficial Potential: LLMs Correcting the
+            Record</h2>
+        <div class="example-grid">
+            <div class="example-item">
+                <svg class="example-svg bg-green-100 text-green-600" viewBox="0 0 100 60"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="60" fill="#f0fdf4" stroke="#e5e7eb" stroke-width="1"/>
+                    <text x="25" y="15" font-size="7" text-anchor="middle" fill="#f87171">MYTH</text>
+                    <line x1="10" y1="20" x2="40" y2="50" stroke="#f87171" stroke-width="2"/>
+                    <line x1="40" y1="20" x2="10" y2="50" stroke="#f87171" stroke-width="2"/>
+                    <text x="75" y="15" font-size="7" text-anchor="middle" fill="#16a34a" font-weight="bold">FACT</text>
+                    <polyline points="60,30 70,45 90,25" stroke="#16a34a" stroke-width="2" fill="none"/>
+                </svg>
+                <p>Debunking health myths (e.g., COVID cures)</p>
+            </div>
+            <div class="example-item">
+                <svg class="example-svg bg-green-100 text-green-600" viewBox="0 0 100 60"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="60" fill="#f0fdf4" stroke="#e5e7eb" stroke-width="1"/>
+                    <path d="M 30 10 C 10 10, 10 40, 30 40 L 30 50" stroke="#15803d" stroke-width="2" fill="none"/>
+                    <path d="M 70 10 C 90 10, 90 40, 70 40 L 70 50" stroke="#15803d" stroke-width="2" fill="none"/>
+                    <line x1="30" y1="50" x2="70" y2="50" stroke="#15803d" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="8" fill="#16a34a" stroke="#14532d" stroke-width="1"/>
+                    <text x="50" y="25" font-size="6" text-anchor="middle" fill="#16a34a">Health Facts</text>
+                </svg>
+                <p>Providing factual health info (e.g., Arthritis, Alzheimer's)</p>
+            </div>
+            <div class="example-item">
+                <svg class="example-svg bg-green-100 text-green-600" viewBox="0 0 100 60"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="60" fill="#f0fdf4" stroke="#e5e7eb" stroke-width="1"/>
+                    <rect x="10" y="5" width="80" height="30" fill="#dcfce7"/>
+                    <text x="50" y="20" font-size="6" text-anchor="middle" fill="#4b5563">Image Area</text>
+                    <rect x="15" y="40" width="70" height="15" fill="#a7f3d0" rx="2"/>
+                    <text x="50" y="49" font-size="5" text-anchor="middle" fill="#065f46">Context Provided Here</text>
+                </svg>
+                <p>Adding context to misleading images</p>
+            </div>
+            <div class="example-item">
+                <svg class="example-svg bg-green-100 text-green-600" viewBox="0 0 100 60"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="60" fill="#f0fdf4" stroke="#e5e7eb" stroke-width="1"/>
+                    <path d="M 10 10 H 90 V 40 H 70 L 60 50 L 50 40 H 10 Z" fill="#a7f3d0" stroke="#16a34a"
+                          stroke-width="1"/>
+                    <line x1="20" y1="18" x2="80" y2="18" stroke="#15803d" stroke-width="1"/>
+                    <line x1="20" y1="24" x2="70" y2="24" stroke="#15803d" stroke-width="1"/>
+                    <line x1="20" y1="30" x2="75" y2="30" stroke="#15803d" stroke-width="1"/>
+                    <path d="M 5 5 L 15 15 M 5 15 L 15 5" stroke="#16a34a" stroke-width="1.5"
+                          transform="translate(75, 40) scale(0.8)"/>
+                </svg>
+                <p>Offering fast, sourced explanations</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide center-content bg-yellow-50">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-yellow-800">Key Challenges Ahead</h2>
+        <p class="text-lg md:text-xl mb-8 text-yellow-700">Hurdles we need to overcome.</p>
+        <div class="icon-grid">
+            <div class="icon-item">
+                <svg class="icon-svg text-yellow-600" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 19.5a7.5 7.5 0 0115 0"
+                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M12 15v5M9 4h6M6 7h12M9 19h6" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round"/>
+                    <rect x="7" y="9" width="10" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M19 10a2 2 0 11-4 0 2 2 0 014 0zM19 14a1 1 0 11-2 0 1 1 0 012 0z" fill="currentColor"
+                          opacity="0.5"/>
+                </svg>
+                <span>Detection</span>
+                <p>Hard to tell AI text apart (mimics human style)</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-yellow-600" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L4 7v2h16V7l-8-4zM4 11h16M5 19h2m10 0h2" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 11l-2 8h4l-2-8zm12 0l-2 8h4l-2-8z" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8v13M5 11l7-3 7 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path d="M15 14l-3 3-1.5-1.5" stroke="green" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+                <span>Bias Mitigation</span>
+                <p>Removing unfairness from data & models</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-yellow-600" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16l3-3-3-3M19 13H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+                <span>Knowledge Updates</span>
+                <p>Keeping info current (costly, recency bias)</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-yellow-600" viewBox="0 0 24 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.623c5.176-1.332 9-6.03 9-11.622V6.75a.75.75 0 00-.75-.75H3.75a.75.75 0 00-.75.75v3.251c0 5.592 3.824 10.29 9 11.623z"
+                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6zm0 1.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"
+                          stroke="currentColor" stroke-width="1"/>
+                    <path d="M12 7.5v1M12 15v1.5M16.5 12h-1M8.5 12H7m6.7-3.2l-.7.7M9.5 14.5l-.7.7m5.4-5.4l.7.7M9.5 9.5l.7.7"
+                          stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+                <span>Ethical Use</span>
+                <p>Ensuring responsible deployment</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide center-content bg-blue-50">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-blue-800">Strategies & The Path Forward</h2>
+        <p class="text-lg md:text-xl mb-8 text-blue-700">Building trustworthy and beneficial AI.</p>
+        <div class="icon-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); max-width: 800px;">
+            <div class="icon-item">
+                <svg class="icon-svg text-blue-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 5l8 8v7l4-4v-3l8-8V3H2v2z" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Data Quality</span>
+                <p>Better training data (filter falsehoods, diverse)</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-blue-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V9a2 2 0 00-2-2h-4M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Ethical Guidelines</span>
+                <p>Clear rules for responsible use</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-blue-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="3" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5"
+                          opacity="0.7"/>
+                    <path d="M7 7l2 2 2-2M7 11h4" stroke="currentColor" stroke-width="1"/>
+                    <circle cx="15" cy="15" r="4" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M18 18l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Transparency</span>
+                <p>Understanding LLMs (e.g. watermarking)</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-blue-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke="currentColor"
+                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 10l2 2-2 2M20 12h-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round" opacity="0.6"/>
+                    <circle cx="6" cy="10" r="1" fill="currentColor"/>
+                </svg>
+                <span>User Awareness</span>
+                <p>Educating public on critical thinking</p>
+            </div>
+            <div class="icon-item">
+                <svg class="icon-svg text-blue-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke="currentColor"
+                          stroke-width="1.5"/>
+                    <path d="M16 7a4 4 0 11-8 0" stroke="currentColor" stroke-width="1.5"
+                          transform="translate(8, 8) scale(0.5)"/>
+                    <path d="M12 14a7 7 0 00-7 7" stroke="currentColor" stroke-width="1.5"
+                          transform="translate(8, 8) scale(0.5)"/>
+                    <path d="M16 7a4 4 0 11-8 0" stroke="currentColor" stroke-width="1.5"
+                          transform="translate(-8, 8) scale(0.5)"/>
+                    <path d="M12 14a7 7 0 00-7 7" stroke="currentColor" stroke-width="1.5"
+                          transform="translate(-8, 8) scale(0.5)"/>
+                    <path d="M12 14c-2 0-3.8.5-5.3 1.4M12 14c2 0 3.8.5 5.3 1.4" stroke="currentColor" stroke-width="1"
+                          stroke-dasharray="2 2"/>
+                </svg>
+                <span>Collaboration</span>
+                <p>Researchers, developers, policymakers</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide center-content bg-gradient-to-br from-purple-100 to-indigo-100">
+        <svg class="small-title-svg text-purple-600" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+            <rect x="30" y="48" width="4" height="12" rx="1" fill="currentColor" />
+            <rect x="24" y="46" width="16" height="4" rx="1" fill="currentColor" />
+            <path d="M32 8 V46" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M20 28 L32 20 L44 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M14 28 C14 32, 26 32, 26 28" stroke="green" stroke-width="1.5" fill="green" fill-opacity="0.1" />
+            <text x="20" y="31" font-size="4" text-anchor="middle" fill="green">Good</text>
+            <path d="M38 28 C38 32, 50 32, 50 28" stroke="red" stroke-width="1.5" fill="red" fill-opacity="0.1" />
+            <text x="44" y="31" font-size="4" text-anchor="middle" fill="red">Bad</text>
+            <circle cx="32" cy="20" r="2" fill="currentColor" />
+            <path d="M10 36 L54 36" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 1" />
+            <path d="M18 24 L22 20" stroke="green" stroke-width="1" />
+            <path d="M42 24 L46 20" stroke="red" stroke-width="1" />
+            <circle cx="20" cy="22" r="1" fill="green" />
+            <circle cx="44" cy="22" r="1" fill="red" />
+        </svg>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-purple-800">Conclusion: The Double-Edged Sword</h2>
+        <ul class="list-none space-y-4 text-lg md:text-xl max-w-2xl text-indigo-700">
+            <li><span class="text-green-600 font-bold">✅ Good:</span> LLMs can combat mis/disinformation.</li>
+            <li><span class="text-red-600 font-bold">❌ Bad:</span> LLMs can spread mis/disinformation.</li>
+            <li><span class="text-yellow-600 font-bold">✨ Risk:</span> Potential for good is huge, but risks are real.
+            </li>
+            <li><span class="text-blue-600 font-bold">🧠 Action:</span> Requires care, ethics, and vigilance.</li>
+        </ul>
+        <svg class="mt-8 rounded-lg h-20 w-auto" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="30" fill="#ede9fe"/>
+            <path d="M 50 5 V 25 M 40 10 L 50 5 L 60 10 M 40 20 L 50 25 L 60 20 M 30 15 H 70" stroke="#4c1d95"
+                  stroke-width="1.5" stroke-linecap="round"/>
+            <text x="20" y="18" font-size="6" text-anchor="middle" fill="#16a34a">Good</text>
+            <text x="80" y="18" font-size="6" text-anchor="middle" fill="#dc2626">Bad</text>
+        </svg>
+    </div>
+
+    <div class="slide center-content bg-gray-200">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-gray-700">Questions?</h2>
+        <svg class="title-svg text-gray-500" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none"
+             stroke="currentColor" stroke-width="2">
+            <path d="M32 48v-4c0-5 8-5 8-12 0-4-3.5-8-8-8s-8 4-8 8"
+                  stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="56" r="2" fill="currentColor"/>
+            <path d="M12 20c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4v6c0 2.2-1.8 4-4 4h-4l-4 4v-4h-0.5c-1.9 0-3.5-1.6-3.5-3.5V20z"
+                  stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.1"/>
+            <path d="M52 14c0-2.2-1.8-4-4-4h-8c-2.2 0-4 1.8-4 4v6c0 2.2 1.8 4 4 4h4l4 4v-4h0.5c1.9 0 3.5-1.6 3.5-3.5V14z"
+                  stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.1"/>
+            <path d="M16 18c0-1 0.7-1.5 1.5-1.5 0.8 0 1.5 0.7 1.5 1.5 0 1.5-1.5 1-1.5 2.5"
+                  stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="17.5" cy="23" r="0.5" fill="currentColor"/>
+            <path d="M46 12c0-1 0.7-1.5 1.5-1.5 0.8 0 1.5 0.7 1.5 1.5 0 1.5-1.5 1-1.5 2.5"
+                  stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="47.5" cy="17" r="0.5" fill="currentColor"/>
+            <path d="M24 24l4 4" stroke="currentColor" stroke-width="1" stroke-dasharray="2 1"/>
+            <path d="M40 20l-4 4" stroke="currentColor" stroke-width="1" stroke-dasharray="2 1"/>
+        </svg>
+        <p class="mt-6 text-xl text-gray-600">Let's discuss! (e.g., Have you encountered AI-generated content you suspected was false?)</p>
+    </div>
+
+</div>
+
+<nav class="presentation-controls">
+    <button id="prevBtn" class="nav-button" aria-label="Previous slide">Previous</button>
+    <button id="nextBtn" class="nav-button" aria-label="Next slide">Next</button>
+    <div class="slide-progress" aria-hidden="true">
+    </div>
+</nav>
+
+<button id="fullscreenBtn" aria-label="Toggle fullscreen mode">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+    </svg>
+</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
