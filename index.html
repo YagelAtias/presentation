@@ -222,26 +222,54 @@
     <div class="slide center-content bg-emerald-100">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 text-emerald-800">Deep Dive: Transformer Architecture</h2>
         <p class="text-lg md:text-xl mb-4 max-w-3xl text-emerald-700">Transformers process words in relation to all other words in a sequence, not just sequentially. [Cite: Paper Sec. III]</p>
-        <svg class="tech-diagram-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-            <defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/></marker></defs>
-            <rect x="20" y="80" width="70" height="40" rx="5" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
-            <text x="55" y="105" text-anchor="middle" font-size="10" fill="#047857">Input</text>
-            <rect x="120" y="40" width="80" height="30" rx="5" fill="#6ee7b7" stroke="#059669" stroke-width="1"/>
-            <text x="160" y="60" text-anchor="middle" font-size="8" fill="#047857">Embedding + Positional Encoding</text>
-            <rect x="120" y="85" width="80" height="30" rx="5" fill="#34d399" stroke="#059669" stroke-width="1"/>
-            <text x="160" y="105" text-anchor="middle" font-size="8" fill="#047857">Multi-Head Attention</text>
-            <rect x="120" y="130" width="80" height="30" rx="5" fill="#10b981" stroke="#059669" stroke-width="1"/>
-            <text x="160" y="150" text-anchor="middle" font-size="8" fill="#047857">Feed Forward Network</text>
-            <rect x="230" y="80" width="70" height="40" rx="5" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
-            <text x="265" y="105" text-anchor="middle" font-size="10" fill="#047857">Output</text>
-            <line x1="90" y1="100" x2="120" y2="100" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <path d="M 200 100 Q 215 100 215 80 L 215 55 Q 215 35 200 35 L 120 35 Q 105 35 105 55 L 105 80 Q 105 100 120 100" fill="none" stroke="#065f46" stroke-width="1" stroke-dasharray="2 2"/>
-            <line x1="160" y1="70" x2="160" y2="85" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <line x1="160" y1="115" x2="160" y2="130" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <line x1="160" y1="160" x2="160" y2="170" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <path d="M200 100 Q 215 100 215 120 L 215 140 Q 215 160 200 160 L 120 160 Q 105 160 105 140 L 105 120 Q 105 100 120 100" fill="none" stroke="#065f46" stroke-width="1" stroke-dasharray="2 2"/>
-            <line x1="200" y1="100" x2="230" y2="100" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <text x="160" y="25" text-anchor="middle" font-size="8" fill="#047857">(Simplified Encoder/Decoder Block)</text>
+        <svg class="tech-diagram-svg" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- Definitions for arrow markers -->
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                </marker>
+            </defs>
+
+            <!-- Title -->
+            <text x="200" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#047857">Simplified Transformer Architecture</text>
+
+            <!-- Input Box -->
+            <rect x="30" y="100" width="80" height="40" rx="6" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+            <text x="70" y="125" text-anchor="middle" font-size="14" fill="#047857">Input</text>
+
+            <!-- Encoder Block (Background) -->
+            <rect x="140" y="60" width="120" height="120" rx="8" fill="#f0fdfa" stroke="#059669" stroke-width="1" stroke-dasharray="4 2"/>
+            <text x="200" y="50" text-anchor="middle" font-size="10" fill="#047857">Encoder Block</text>
+
+            <!-- Embedding Layer -->
+            <rect x="150" y="70" width="100" height="30" rx="5" fill="#6ee7b7" stroke="#059669" stroke-width="1.5"/>
+            <text x="200" y="90" text-anchor="middle" font-size="12" fill="#047857">Embedding</text>
+
+            <!-- Multi-Head Attention -->
+            <rect x="150" y="110" width="100" height="30" rx="5" fill="#34d399" stroke="#059669" stroke-width="1.5"/>
+            <text x="200" y="130" text-anchor="middle" font-size="12" fill="#047857">Self-Attention</text>
+
+            <!-- Feed Forward Network -->
+            <rect x="150" y="150" width="100" height="30" rx="5" fill="#10b981" stroke="#059669" stroke-width="1.5"/>
+            <text x="200" y="170" text-anchor="middle" font-size="12" fill="#047857">Feed Forward</text>
+
+            <!-- Output Box -->
+            <rect x="290" y="100" width="80" height="40" rx="6" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+            <text x="330" y="125" text-anchor="middle" font-size="14" fill="#047857">Output</text>
+
+            <!-- Connecting Arrows -->
+            <line x1="110" y1="120" x2="140" y2="120" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="200" y1="100" x2="200" y2="110" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="200" y1="140" x2="200" y2="150" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="260" y1="120" x2="290" y2="120" stroke="#059669" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- Skip Connections -->
+            <path d="M 150 85 H 130 V 165 H 150" stroke="#059669" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+            <path d="M 250 85 H 270 V 165 H 250" stroke="#059669" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+
+            <!-- Legend -->
+            <rect x="30" y="200" width="340" height="30" rx="5" fill="#f0fdfa" stroke="#059669" stroke-width="1"/>
+            <text x="200" y="220" text-anchor="middle" font-size="12" fill="#047857">Processes words in relation to all other words in the sequence</text>
         </svg>
         <ul class="list-disc list-inside text-left text-md space-y-2 max-w-xl text-gray-700 mt-4">
             <li><strong>Embedding Layer:</strong> Converts words into numerical vectors.</li>
@@ -255,20 +283,49 @@
     <div class="slide center-content bg-emerald-50">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 text-emerald-800">Key Ingredient: Self-Attention</h2>
         <p class="text-lg md:text-xl mb-4 max-w-3xl text-emerald-700">Self-attention allows the model to weigh the importance of different words when processing each word in a sequence. [Cite: Paper Sec. III]</p>
-        <svg class="tech-diagram-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
-            <style>.word { font-size: 14px; font-family: 'Inter', sans-serif; } .heavy { stroke-width: 2.5px; stroke: #059669;} .light { stroke-width: 1px; stroke: #34d399; } </style>
-            <defs><marker id="att_arrow_heavy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/></marker>
-            <marker id="att_arrow_light" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/></marker></defs>
-            <text x="20" y="50" class="word fill-gray-700">The</text>
-            <text x="60" y="50" class="word fill-gray-700">quick</text>
-            <text x="110" y="50" class="word fill-red-600 font-bold">brown</text>
-            <text x="170" y="50" class="word fill-gray-700">fox</text>
-            <text x="205" y="50" class="word fill-gray-700">jumps.</text>
-            <path d="M125 40 Q 145 20 175 40" class="heavy" fill="none" marker-end="url(#att_arrow_heavy)"/>
-            <text x="145" y="15" font-size="8" fill="#059669">Strong attention</text>
-            <path d="M125 42 Q 90 65 65 55" class="light" fill="none" marker-end="url(#att_arrow_light)"/>
-            <path d="M130 42 Q 60 15 25 40" class="light" fill="none" marker-end="url(#att_arrow_light)"/>
-            <text x="150" y="85" text-anchor="middle" font-size="10" fill="#047857">When processing "brown", the model "attends" more to "fox".</text>
+        <svg class="tech-diagram-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Definitions -->
+            <defs>
+                <marker id="att_arrow_strong" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+                </marker>
+                <marker id="att_arrow_weak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/>
+                </marker>
+            </defs>
+
+            <!-- Title -->
+            <text x="200" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#047857">Self-Attention Mechanism</text>
+
+            <!-- Background for sentence -->
+            <rect x="20" y="40" width="360" height="40" rx="5" fill="#f0fdfa" stroke="#059669" stroke-width="1" stroke-dasharray="2 2"/>
+
+            <!-- Words in the sentence -->
+            <text x="50" y="65" font-size="16" text-anchor="middle" fill="#4b5563" font-family="Inter, sans-serif">The</text>
+            <text x="100" y="65" font-size="16" text-anchor="middle" fill="#4b5563" font-family="Inter, sans-serif">quick</text>
+            <text x="160" y="65" font-size="18" text-anchor="middle" fill="#dc2626" font-weight="bold" font-family="Inter, sans-serif">brown</text>
+            <text x="220" y="65" font-size="16" text-anchor="middle" fill="#4b5563" font-family="Inter, sans-serif">fox</text>
+            <text x="270" y="65" font-size="16" text-anchor="middle" fill="#4b5563" font-family="Inter, sans-serif">jumps</text>
+            <text x="330" y="65" font-size="16" text-anchor="middle" fill="#4b5563" font-family="Inter, sans-serif">over</text>
+
+            <!-- Word being processed highlight -->
+            <circle cx="160" cy="65" r="25" fill="#059669" fill-opacity="0.1" stroke="#059669" stroke-width="1.5" stroke-dasharray="3 1"/>
+
+            <!-- Strong attention arrow -->
+            <path d="M 160 50 Q 190 30 220 50" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#att_arrow_strong)"/>
+            <text x="190" y="30" font-size="12" text-anchor="middle" fill="#059669" font-weight="bold">Strong attention</text>
+
+            <!-- Weak attention arrows -->
+            <path d="M 160 80 Q 120 100 100 80" stroke="#34d399" stroke-width="1.5" fill="none" marker-end="url(#att_arrow_weak)"/>
+            <path d="M 160 80 Q 80 110 50 80" stroke="#34d399" stroke-width="1.5" fill="none" marker-end="url(#att_arrow_weak)"/>
+            <path d="M 160 80 Q 200 100 270 80" stroke="#34d399" stroke-width="1.5" fill="none" marker-end="url(#att_arrow_weak)"/>
+            <path d="M 160 80 Q 240 110 330 80" stroke="#34d399" stroke-width="1.5" fill="none" marker-end="url(#att_arrow_weak)"/>
+            <text x="100" y="110" font-size="10" text-anchor="middle" fill="#34d399">Weaker attention</text>
+
+            <!-- Explanation -->
+            <rect x="40" y="130" width="320" height="50" rx="6" fill="#f0fdfa" stroke="#059669" stroke-width="1"/>
+            <text x="200" y="150" text-anchor="middle" font-size="14" fill="#047857">When processing "brown", the model calculates</text>
+            <text x="200" y="170" text-anchor="middle" font-size="14" fill="#047857">attention scores with every other word in the sequence.</text>
         </svg>
         <ul class="list-disc list-inside text-left text-md space-y-2 max-w-xl text-gray-700 mt-4">
             <li>Calculates "attention scores" between words.</li>
