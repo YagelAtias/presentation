@@ -222,26 +222,26 @@
     <div class="slide center-content bg-emerald-100">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 text-emerald-800">Deep Dive: Transformer Architecture</h2>
         <p class="text-lg md:text-xl mb-4 max-w-3xl text-emerald-700">Transformers process words in relation to all other words in a sequence, not just sequentially. [Cite: Paper Sec. III]</p>
-        <svg class="tech-diagram-svg" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
+        <svg class="tech-diagram-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
             <defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/></marker></defs>
-            <rect x="10" y="70" width="70" height="40" rx="5" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
-            <text x="45" y="95" text-anchor="middle" font-size="10" fill="#047857">Input</text>
-            <rect x="110" y="30" width="80" height="30" rx="5" fill="#6ee7b7" stroke="#059669" stroke-width="1"/>
-            <text x="150" y="50" text-anchor="middle" font-size="9" fill="#047857">Embedding + Positional Encoding</text>
-            <rect x="110" y="75" width="80" height="30" rx="5" fill="#34d399" stroke="#059669" stroke-width="1"/>
-            <text x="150" y="95" text-anchor="middle" font-size="9" fill="#047857">Multi-Head Attention</text>
-            <rect x="110" y="120" width="80" height="30" rx="5" fill="#10b981" stroke="#059669" stroke-width="1"/>
-            <text x="150" y="140" text-anchor="middle" font-size="9" fill="#047857">Feed Forward Network</text>
-            <rect x="220" y="70" width="70" height="40" rx="5" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
-            <text x="255" y="95" text-anchor="middle" font-size="10" fill="#047857">Output</text>
-            <line x1="80" y1="90" x2="110" y2="90" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <path d="M 190 90 Q 205 90 205 70 L 205 50 Q 205 30 190 30 L 110 30 Q 95 30 95 50 L 95 70 Q 95 90 110 90" fill="none" stroke="#065f46" stroke-width="1" stroke-dasharray="2 2"/>
-            <line x1="150" y1="60" x2="150" y2="75" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <line x1="150" y1="105" x2="150" y2="120" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <line x1="150" y1="150" x2="150" y2="160" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-             <path d="M190 90 Q 205 90 205 110 L 205 130 Q 205 150 190 150 L 110 150 Q 95 150 95 130 L 95 110 Q 95 90 110 90" fill="none" stroke="#065f46" stroke-width="1" stroke-dasharray="2 2"/>
-            <line x1="190" y1="90" x2="220" y2="90" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
-            <text x="150" y="15" text-anchor="middle" font-size="8" fill="#047857">(Simplified Encoder/Decoder Block)</text>
+            <rect x="20" y="80" width="70" height="40" rx="5" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+            <text x="55" y="105" text-anchor="middle" font-size="10" fill="#047857">Input</text>
+            <rect x="120" y="40" width="80" height="30" rx="5" fill="#6ee7b7" stroke="#059669" stroke-width="1"/>
+            <text x="160" y="60" text-anchor="middle" font-size="8" fill="#047857">Embedding + Positional Encoding</text>
+            <rect x="120" y="85" width="80" height="30" rx="5" fill="#34d399" stroke="#059669" stroke-width="1"/>
+            <text x="160" y="105" text-anchor="middle" font-size="8" fill="#047857">Multi-Head Attention</text>
+            <rect x="120" y="130" width="80" height="30" rx="5" fill="#10b981" stroke="#059669" stroke-width="1"/>
+            <text x="160" y="150" text-anchor="middle" font-size="8" fill="#047857">Feed Forward Network</text>
+            <rect x="230" y="80" width="70" height="40" rx="5" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+            <text x="265" y="105" text-anchor="middle" font-size="10" fill="#047857">Output</text>
+            <line x1="90" y1="100" x2="120" y2="100" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <path d="M 200 100 Q 215 100 215 80 L 215 55 Q 215 35 200 35 L 120 35 Q 105 35 105 55 L 105 80 Q 105 100 120 100" fill="none" stroke="#065f46" stroke-width="1" stroke-dasharray="2 2"/>
+            <line x1="160" y1="70" x2="160" y2="85" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <line x1="160" y1="115" x2="160" y2="130" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <line x1="160" y1="160" x2="160" y2="170" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <path d="M200 100 Q 215 100 215 120 L 215 140 Q 215 160 200 160 L 120 160 Q 105 160 105 140 L 105 120 Q 105 100 120 100" fill="none" stroke="#065f46" stroke-width="1" stroke-dasharray="2 2"/>
+            <line x1="200" y1="100" x2="230" y2="100" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)"/>
+            <text x="160" y="25" text-anchor="middle" font-size="8" fill="#047857">(Simplified Encoder/Decoder Block)</text>
         </svg>
         <ul class="list-disc list-inside text-left text-md space-y-2 max-w-xl text-gray-700 mt-4">
             <li><strong>Embedding Layer:</strong> Converts words into numerical vectors.</li>
@@ -255,20 +255,20 @@
     <div class="slide center-content bg-emerald-50">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 text-emerald-800">Key Ingredient: Self-Attention</h2>
         <p class="text-lg md:text-xl mb-4 max-w-3xl text-emerald-700">Self-attention allows the model to weigh the importance of different words when processing each word in a sequence. [Cite: Paper Sec. III]</p>
-        <svg class="tech-diagram-svg" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+        <svg class="tech-diagram-svg" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
             <style>.word { font-size: 14px; font-family: 'Inter', sans-serif; } .heavy { stroke-width: 2.5px; stroke: #059669;} .light { stroke-width: 1px; stroke: #34d399; } </style>
             <defs><marker id="att_arrow_heavy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/></marker>
             <marker id="att_arrow_light" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/></marker></defs>
-            <text x="20" y="60" class="word fill-gray-700">The</text>
-            <text x="60" y="60" class="word fill-gray-700">quick</text>
-            <text x="110" y="60" class="word fill-red-600 font-bold">brown</text>
-            <text x="170" y="60" class="word fill-gray-700">fox</text>
-            <text x="205" y="60" class="word fill-gray-700">jumps.</text>
-            <path d="M125 50 Q 145 30 175 50" class="heavy" fill="none" marker-end="url(#att_arrow_heavy)"/>
-            <text x="145" y="25" font-size="8" fill="#059669">Strong attention</text>
-            <path d="M125 52 Q 90 75 65 65" class="light" fill="none" marker-end="url(#att_arrow_light)"/>
-            <path d="M130 52 Q 60 25 25 50" class="light" fill="none" marker-end="url(#att_arrow_light)"/>
-            <text x="100" y="90" font-size="10" fill="#047857">When processing "brown", the model "attends" more to "fox".</text>
+            <text x="20" y="50" class="word fill-gray-700">The</text>
+            <text x="60" y="50" class="word fill-gray-700">quick</text>
+            <text x="110" y="50" class="word fill-red-600 font-bold">brown</text>
+            <text x="170" y="50" class="word fill-gray-700">fox</text>
+            <text x="205" y="50" class="word fill-gray-700">jumps.</text>
+            <path d="M125 40 Q 145 20 175 40" class="heavy" fill="none" marker-end="url(#att_arrow_heavy)"/>
+            <text x="145" y="15" font-size="8" fill="#059669">Strong attention</text>
+            <path d="M125 42 Q 90 65 65 55" class="light" fill="none" marker-end="url(#att_arrow_light)"/>
+            <path d="M130 42 Q 60 15 25 40" class="light" fill="none" marker-end="url(#att_arrow_light)"/>
+            <text x="150" y="85" text-anchor="middle" font-size="10" fill="#047857">When processing "brown", the model "attends" more to "fox".</text>
         </svg>
         <ul class="list-disc list-inside text-left text-md space-y-2 max-w-xl text-gray-700 mt-4">
             <li>Calculates "attention scores" between words.</li>
