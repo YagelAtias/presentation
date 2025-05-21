@@ -269,9 +269,9 @@
 
             <!-- Legend -->
             <rect x="30" y="200" width="340" height="30" rx="5" fill="#f0fdfa" stroke="#059669" stroke-width="1"/>
-            <text x="200" y="220" text-anchor="middle" font-size="12" fill="#047857">Processes words in relation to all other words in the sequence</text>
+            <text x="200" y="220" text-anchor="middle" font-size="10" fill="#047857">Processes words in relation to all other words in the sequence</text>
         </svg>
-        <ul class="list-disc list-inside text-left text-md space-y-2 max-w-xl text-gray-700 mt-4">
+        <ul class="list-disc list-inside text-left text-md space-y-1 max-w-xl text-gray-700 mt-2">
             <li><strong>Embedding Layer:</strong> Converts words into numerical vectors.</li>
             <li><strong>Positional Encoding:</strong> Adds information about word order.</li>
             <li><strong>Multi-Head Attention:</strong> Core mechanism, allows focusing on different parts of input. (More next!)</li>
@@ -313,7 +313,7 @@
 
             <!-- Strong attention arrow -->
             <path d="M 160 50 Q 190 30 220 50" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#att_arrow_strong)"/>
-            <text x="190" y="30" font-size="12" text-anchor="middle" fill="#059669" font-weight="bold">Strong attention</text>
+            <text x="190" y="40" font-size="11" text-anchor="middle" fill="#059669" font-weight="bold">Strong attention</text>
 
             <!-- Weak attention arrows -->
             <path d="M 160 80 Q 120 100 100 80" stroke="#34d399" stroke-width="1.5" fill="none" marker-end="url(#att_arrow_weak)"/>
@@ -324,10 +324,10 @@
 
             <!-- Explanation -->
             <rect x="40" y="130" width="320" height="50" rx="6" fill="#f0fdfa" stroke="#059669" stroke-width="1"/>
-            <text x="200" y="150" text-anchor="middle" font-size="14" fill="#047857">When processing "brown", the model calculates</text>
-            <text x="200" y="170" text-anchor="middle" font-size="14" fill="#047857">attention scores with every other word in the sequence.</text>
+            <text x="200" y="150" text-anchor="middle" font-size="12" fill="#047857">When processing "brown", the model calculates</text>
+            <text x="200" y="170" text-anchor="middle" font-size="12" fill="#047857">attention scores with every other word in the sequence.</text>
         </svg>
-        <ul class="list-disc list-inside text-left text-md space-y-2 max-w-xl text-gray-700 mt-4">
+        <ul class="list-disc list-inside text-left text-md space-y-1 max-w-xl text-gray-700 mt-2">
             <li>Calculates "attention scores" between words.</li>
             <li>Words that are more relevant to each other get higher scores.</li>
             <li>Helps capture context, resolve ambiguity, and understand long-range dependencies.</li>
