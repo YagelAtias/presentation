@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullscreenButton = document.getElementById('fullscreenBtn');
 
     // Add click event listeners to navigation buttons
-    prevButton.addEventListener('click', () => changeSlide(-1));
-    nextButton.addEventListener('click', () => changeSlide(1));
+    if(prevButton) prevButton.addEventListener('click', () => changeSlide(-1));
+    if(nextButton) nextButton.addEventListener('click', () => changeSlide(1));
 
     // Add click event listener to fullscreen button
     if (fullscreenButton) {
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Creates progress dots for each slide
  */
 function createProgressDots() {
+    if (!progressContainer) return;
     // Clear any existing dots
     progressContainer.innerHTML = '';
     progressDots = [];
@@ -97,7 +98,7 @@ function showSlide(index) {
 
         // Update progress dots
         progressDots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
+            if(dot) dot.classList.toggle('active', i === index);
         });
 
         // Update screen reader counter
@@ -115,8 +116,8 @@ function showSlide(index) {
     }
 
     // Update button states
-    prevButton.disabled = index === 0;
-    nextButton.disabled = index === totalSlides - 1;
+    if(prevButton) prevButton.disabled = index === 0;
+    if(nextButton) nextButton.disabled = index === totalSlides - 1;
 }
 
 /**
@@ -124,18 +125,20 @@ function showSlide(index) {
  * @param {number} index - The index of the current slide
  */
 function announceSlideChange(index) {
-    const slideTitle = slides[index].querySelector('h1, h2')?.textContent || `Slide ${index + 1}`;
-    const announcement = document.createElement('div');
-    announcement.setAttribute('aria-live', 'polite');
-    announcement.className = 'sr-only';
+    if (!slides[index]) return;
+    const slideTitleElement = slides[index].querySelector('h1, h2');
+    const slideTitle = slideTitleElement ? slideTitleElement.textContent : `Slide ${index + 1}`;
+
+    let announcement = document.getElementById('slide-announcer');
+    if (!announcement) {
+        announcement = document.createElement('div');
+        announcement.id = 'slide-announcer';
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'sr-only';
+        document.body.appendChild(announcement);
+    }
+
     announcement.textContent = `Now viewing: ${slideTitle}`;
-
-    document.body.appendChild(announcement);
-
-    // Remove after announcement is read
-    setTimeout(() => {
-        document.body.removeChild(announcement);
-    }, 1000);
 }
 
 /**
@@ -156,9 +159,9 @@ function changeSlide(direction) {
  */
 function setupKeyboardNavigation() {
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'ArrowLeft') {
+        if (event.key === 'ArrowLeft' && !prevButton.disabled) {
             changeSlide(-1); // Go to previous slide
-        } else if (event.key === 'ArrowRight') {
+        } else if (event.key === 'ArrowRight' && !nextButton.disabled) {
             changeSlide(1); // Go to next slide
         } else if (event.key === 'Home') {
             currentSlideIndex = 0;
@@ -177,6 +180,7 @@ function setupKeyboardNavigation() {
  */
 function setupTouchNavigation() {
     const container = document.getElementById('presentationContainer');
+    if (!container) return;
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -193,10 +197,10 @@ function setupTouchNavigation() {
         const swipeThreshold = 50; // Minimum distance for a swipe
         const swipeDistance = touchEndX - touchStartX;
 
-        if (swipeDistance > swipeThreshold) {
+        if (swipeDistance > swipeThreshold && !prevButton.disabled) {
             // Swiped right, go to previous slide
             changeSlide(-1);
-        } else if (swipeDistance < -swipeThreshold) {
+        } else if (swipeDistance < -swipeThreshold && !nextButton.disabled) {
             // Swiped left, go to next slide
             changeSlide(1);
         }

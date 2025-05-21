@@ -20,6 +20,7 @@ body {
     transform: translateY(20px); /* Start slightly below for transition */
     pointer-events: none; /* Prevent interaction with hidden slides */
     visibility: hidden; /* Hide hidden slides */
+    box-sizing: border-box; /* Ensure padding is included in width/height */
 }
 
 .slide.active {
@@ -153,29 +154,36 @@ body {
 /* Icon grid layout */
 .icon-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
     gap: 1.5rem; /* gap-6 */
     margin-top: 2rem; /* mt-8 */
     width: 100%;
-    max-width: 600px;
+    max-width: 900px; /* Increased max-width for 4 items */
+}
+
+.icon-grid.two-cols {
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+     max-width: 600px;
 }
 
 .icon-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align items to the top */
     padding: 1rem; /* p-4 */
     background-color: #f3f4f6; /* gray-100 */
     border-radius: 0.5rem; /* rounded-lg */
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* shadow-sm */
+    text-align: center; /* Center text inside item */
+    min-height: 180px; /* Ensure consistent height */
 }
 
 /* SVG icon sizes */
 .icon-svg {
-    width: 4rem; /* w-16 */
-    height: 4rem; /* h-16 */
-    margin-bottom: 0.5rem; /* mb-2 */
+    width: 3rem; /* w-12, slightly smaller for more items */
+    height: 3rem; /* h-12 */
+    margin-bottom: 0.75rem; /* mb-3 */
 }
 
 .title-svg {
@@ -194,12 +202,14 @@ body {
 .icon-item p {
     font-size: 0.875rem; /* text-sm */
     color: #4b5563; /* gray-600 */
+    line-height: 1.4; /* Improved line spacing */
 }
 
 .icon-item span {
     font-weight: bold;
     margin-bottom: 0.25rem; /* mb-1 */
     color: #1f2937; /* gray-800 */
+    font-size: 1rem; /* text-base */
 }
 
 /* ===== EXAMPLE GRID STYLES ===== */
