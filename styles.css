@@ -250,7 +250,7 @@ body {
 .tech-diagram-svg {
     width: 100%;
     max-width: 500px;
-    max-height: 180px; /* Reduced height to create more room for text */
+    max-height: 400px; /* Reduced height to create more room for text */
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
