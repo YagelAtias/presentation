@@ -86,13 +86,14 @@ body {
 /* Slide progress indicator */
 .slide-progress {
     position: fixed;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 20;
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 9999px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -143,11 +144,50 @@ body {
     border-radius: 50%;
     background-color: #d1d5db; /* gray-300 */
     transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-dot:hover {
+    transform: scale(1.4);
+    background-color: #a5b4fc; /* indigo-300 */
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.4);
+}
+
+.progress-dot:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    border: 2px solid #a5b4fc;
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulse 1.5s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
 }
 
 .progress-dot.active {
     background-color: #4f46e5; /* indigo-600 */
     transform: scale(1.2);
+}
+
+.progress-dot.active:hover {
+    transform: scale(1.5);
+    background-color: #4f46e5; /* indigo-600 */
 }
 
 /* ===== ICON STYLES ===== */
@@ -249,10 +289,11 @@ body {
 /* Styles for technical diagrams */
 .tech-diagram-svg {
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     max-height: 400px; /* Reduced height to create more room for text */
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    overflow: visible; /* Prevent cutting off elements that extend beyond boundaries */
 }
 
 .example-item p {
